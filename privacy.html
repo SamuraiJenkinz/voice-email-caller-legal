@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Voice Email Caller</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    max-width: 42rem; margin: 0 auto; padding: 2.5rem 1.25rem 6rem;
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1a1a1a; background: #fff;
+  }
+  @media (prefers-color-scheme: dark) { body { color: #e6e6e6; background: #121212; } a { color: #7cb7ff; } }
+  h1 { font-size: 1.75rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.15rem; margin-top: 2rem; }
+  .updated { color: #666; font-size: .9rem; margin-top: 0; }
+  @media (prefers-color-scheme: dark) { .updated { color: #999; } }
+  .callout { border-left: 3px solid #888; padding: .25rem 0 .25rem 1rem; margin: 1.5rem 0; }
+  footer { margin-top: 3rem; font-size: .9rem; color: #666; border-top: 1px solid #ddd; padding-top: 1rem; }
+  @media (prefers-color-scheme: dark) { footer { color: #999; border-top-color: #333; } }
+</style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p class="updated">Voice Email Caller · Last updated 24 August 2026</p>
+
+<h2>What this service is</h2>
+<p>
+  Voice Email Caller is a personal, single-user notification service operated by an individual for
+  his own use. It monitors the operator's own email inbox and alerts him by phone call, with an SMS
+  fallback if the call cannot be completed. It is not a commercial product, has no public sign-up,
+  and has no users other than the operator himself.
+</p>
+
+<h2>Whose phone number we hold</h2>
+<p>
+  Exactly one: the operator's own mobile number, which he enters into a configuration file on his
+  own machine during setup. No phone numbers are collected from anyone else, because the service has
+  no mechanism by which anyone else could provide one.
+</p>
+
+<div class="callout">
+  <strong>Mobile numbers are never shared.</strong> No mobile information is sold, rented, traded, or
+  shared with any third party for marketing or promotional purposes. No mobile opt-in data or consent
+  records are shared with third parties. Phone numbers are transmitted only to the telephony provider
+  (Twilio) strictly for the purpose of placing the call or delivering the message, which is the sole
+  technical means of delivery.
+</div>
+
+<h2>Message frequency</h2>
+<p>
+  Messages are sent only when new email arrives from a sender on the operator's own configured
+  watchlist and the alerting phone call could not be completed. Expected frequency is fewer than
+  10 messages per week. Frequency varies with incoming mail and may be zero in a given week.
+</p>
+
+<h2>Message and data rates</h2>
+<p>Message and data rates may apply.</p>
+
+<h2>Opting out</h2>
+<p>
+  Reply <strong>STOP</strong> to any message to opt out and receive no further messages. Reply
+  <strong>HELP</strong> for help. Opt-out takes effect immediately and is honoured by the underlying
+  telephony provider independently of this service.
+</p>
+
+<h2>What data the service handles</h2>
+<ul>
+  <li><strong>Email content</strong> — read from the operator's own mailbox via the Gmail API, using
+      credentials he authorised himself, in order to read the message aloud or include it in a
+      fallback SMS. Content is processed transiently for delivery and is not published or sold.</li>
+  <li><strong>The operator's mobile number</strong> — stored locally in the operator's own
+      configuration and passed to the telephony provider to place calls and send messages.</li>
+  <li><strong>Operational records</strong> — minimal local state (such as which messages have already
+      been delivered) so that a restart does not cause a duplicate alert. Stored locally.</li>
+</ul>
+
+<h2>Third parties</h2>
+<p>
+  The service relies on Google (Gmail API) for mail access and Twilio for telephony. Data reaches
+  those providers only as required to operate the service, and is governed by their respective
+  privacy policies. No other third party receives data.
+</p>
+
+<h2>Retention</h2>
+<p>
+  Email content is not retained beyond what is needed to deliver a given alert. Local operational
+  state persists only to prevent duplicate alerts and may be deleted at any time by the operator.
+</p>
+
+<h2>Contact</h2>
+<p>
+  Enquiries about this policy may be directed to the operator via
+  <a href="https://github.com/SamuraiJenkinz">github.com/SamuraiJenkinz</a>.
+</p>
+
+<footer>
+  <a href="./">Home</a> · <a href="./terms.html">Terms and Conditions</a>
+</footer>
+
+</body>
+</html>
