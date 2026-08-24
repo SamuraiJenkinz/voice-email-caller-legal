@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How Opt-In Works — Voice Email Caller</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    max-width: 44rem; margin: 0 auto; padding: 2.5rem 1.25rem 6rem;
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1a1a1a; background: #fff;
+  }
+  @media (prefers-color-scheme: dark) { body { color: #e6e6e6; background: #121212; } a { color: #7cb7ff; } code, pre { background: #1e1e1e !important; } }
+  h1 { font-size: 1.75rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.15rem; margin-top: 2rem; }
+  .updated { color: #666; font-size: .9rem; margin-top: 0; }
+  @media (prefers-color-scheme: dark) { .updated { color: #999; } }
+  .callout { border-left: 3px solid #888; padding: .25rem 0 .25rem 1rem; margin: 1.5rem 0; }
+  pre { background: #f4f4f4; padding: 1rem; border-radius: 6px; overflow-x: auto; font-size: .9rem; }
+  code { background: #f4f4f4; padding: .1rem .3rem; border-radius: 3px; font-size: .92em; }
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .95rem; }
+  th, td { text-align: left; padding: .5rem .6rem; border-bottom: 1px solid #ddd; vertical-align: top; }
+  @media (prefers-color-scheme: dark) { th, td { border-bottom-color: #333; } }
+  footer { margin-top: 3rem; font-size: .9rem; color: #666; border-top: 1px solid #ddd; padding-top: 1rem; }
+  @media (prefers-color-scheme: dark) { footer { color: #999; border-top-color: #333; } }
+</style>
+</head>
+<body>
+
+<h1>How Opt-In Works</h1>
+<p class="updated">Voice Email Caller · Last updated 24 August 2026</p>
+
+<div class="callout">
+  <strong>Summary for reviewers.</strong> This messaging program has exactly one recipient: the
+  operator of the service, who is also the Twilio account holder. There is no public sign-up, no
+  customer list, and no mechanism by which any other person's number could enter the system.
+  Consent is given by the operator to himself, by configuring his own number.
+</div>
+
+<h2>Who sends, who receives, and why</h2>
+<table>
+  <tr><th>Sender</th><td>Kevin Taylor, an individual, from his own Twilio long code.</td></tr>
+  <tr><th>Recipient</th><td>Kevin Taylor — his own mobile handset. One number, permanently. Nobody else.</td></tr>
+  <tr><th>Why</th><td>The service watches his own email inbox for messages from a short, self-chosen
+      list of senders and telephones him to read them aloud. If that call cannot be completed, an SMS
+      delivers the same alert so time-sensitive mail is not missed.</td></tr>
+  <tr><th>Volume</th><td>Fewer than 10 messages per week, frequently zero.</td></tr>
+</table>
+
+<h2>The opt-in step, concretely</h2>
+<p>
+  There is no web form, no keyword, and no advertisement — because there is no audience to advertise
+  to. The only way a phone number can enter this system is for the operator to type it into a
+  configuration file on his own computer during setup:
+</p>
+
+<pre>
+# .env — local configuration, on the operator's own machine
+OWNER_PHONE_NUMBER=+1XXXXXXXXXX     &lt;-- the operator enters his own mobile here
+TWILIO_FROM_NUMBER=+1XXXXXXXXXX     &lt;-- the number he purchased
+</pre>
+
+<p>
+  Entering that value is the act of consent. It is performed by the account holder, on his own
+  hardware, for his own handset. The application reads exactly one destination number from that
+  configuration and has no code path that would message any other number.
+</p>
+
+<h2>Opting out</h2>
+<p>
+  Reply <strong>STOP</strong> to any message to stop all further messages. Reply
+  <strong>HELP</strong> for help. Opt-out is honoured immediately and independently by the
+  underlying carrier. The operator may also revoke consent by deleting the number from the
+  configuration, which stops messages at the source.
+</p>
+
+<h2>Sample messages</h2>
+<p>Recipients receive messages of exactly these kinds:</p>
+<pre>
+Voice Email Caller: new email from [sender@example.com], subject
+"[Email subject]". Your alert call could not be completed, so the
+message is included here: [Full email body text, which may contain
+links such as https://example.com/article]. Reply HELP for help,
+STOP to opt out.
+</pre>
+<pre>
+Voice Email Caller: alert call to your mobile failed after [3]
+attempts at [HH:MM] on [MM/DD/YYYY]. Email from [sender@example.com],
+subject "[Email subject]". Msg &amp; data rates may apply. Reply HELP
+for help, STOP to opt out.
+</pre>
+<p>
+  Because the message relays the operator's own received email verbatim, the body may contain links
+  or phone numbers originating from the sender of that email. This is declared on the campaign.
+  Message and data rates may apply.
+</p>
+
+<h2>What this program is not</h2>
+<ul>
+  <li>Not marketing, promotional, or advertising messaging.</li>
+  <li>Not sent to customers, subscribers, leads, or any third party.</li>
+  <li>No phone number is bought, sold, rented, shared, or collected from anyone.</li>
+  <li>No affiliate, lead-generation, or high-risk content of any kind.</li>
+</ul>
+
+<footer>
+  <a href="./">Home</a> · <a href="./privacy.html">Privacy Policy</a> · <a href="./terms.html">Terms and Conditions</a>
+</footer>
+
+</body>
+</html>
